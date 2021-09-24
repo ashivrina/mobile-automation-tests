@@ -1,4 +1,4 @@
-package tests;
+package tests.browserstack;
 
 import com.codeborne.selenide.Configuration;
 import drivers.BrowserStackMobileDriver;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.getSessionId;
 
-public class TestBase {
+public class BrowserstackTestBase {
     @BeforeAll
     public static void setUp() {
         addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
