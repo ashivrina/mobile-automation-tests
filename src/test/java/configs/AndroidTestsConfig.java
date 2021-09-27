@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 import static org.aeonbits.owner.Config.*;
 
-@Sources({"classpath:mobile.properties"})
+@Sources({"classpath:${deviceHost}.properties"})
 public interface AndroidTestsConfig extends Config {
 
     @Key("user")
@@ -13,8 +13,8 @@ public interface AndroidTestsConfig extends Config {
     @Key("key")
     String key();
 
-    @Key("browserstackUrl")
-    String browserstackUrl();
+    @Key("deviceUrl")
+    String deviceUrl();
 
     @Key("app")
     String app();
@@ -24,4 +24,19 @@ public interface AndroidTestsConfig extends Config {
 
     @Key("osVersion")
     String oSVersion();
+
+    @Key("uiautomator2ServerInstallTimeout")
+    String uiautomator2ServerInstallTimeout();
+
+    @Key("appPackage")
+    String appPackage();
+
+    @Key("appActivity")
+    String appActivity();
+
+    @Key("platformName")
+    String platformName();
+
+    @Key("apkUrl")
+    String apkUrl();
 }

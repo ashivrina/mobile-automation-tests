@@ -1,14 +1,15 @@
-package tests.local;
+package tests;
 
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.Test;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-public class GettingStartedTests extends LocalTestBase {
+public class GettingStartedTests extends TestBase {
     @Test
     void gettingStartedTest() {
         step("Check the first screen", () -> {

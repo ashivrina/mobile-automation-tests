@@ -18,7 +18,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     public static URL getSelenoidUrl() {
         try {
-            return new URL("https://user1:1234@selenoid.autotests.cloud/wd/hub");
+            return new URL(config.deviceUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,15 +26,15 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     @Override
     public WebDriver createDriver(DesiredCapabilities desiredCapabilities) {
-        desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("deviceName", "android");
-        desiredCapabilities.setCapability("version", "8.1");
+        desiredCapabilities.setCapability("platformName", config.platformName());
+        desiredCapabilities.setCapability("deviceName", config.device());
+        desiredCapabilities.setCapability("version", config.oSVersion());
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("enableVNC", true);
         desiredCapabilities.setCapability("enableVideo", true);
-        desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
-        desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
+        desiredCapabilities.setCapability("appPackage", config.appPackage());
+        desiredCapabilities.setCapability("appActivity", config.appActivity());
         desiredCapabilities.setCapability("app", apkUrl());
 
         return new AndroidDriver(getSelenoidUrl(), desiredCapabilities);
@@ -42,7 +42,7 @@ public class SelenoidMobileDriver implements WebDriverProvider {
 
     private URL apkUrl() {
         try {
-            return new URL("https://github.com/wikimedia/apps-android-wikipedia/releases/download/latest/app-alpha-universal-release.apk");
+            return new URL(config.apkUrl());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
