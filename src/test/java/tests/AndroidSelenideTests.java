@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class BrowserStackAndroidSelenideTests extends TestBase {
+public class AndroidSelenideTests extends TestBase {
 
     @Test
     void searchTest() {
