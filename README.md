@@ -1,4 +1,4 @@
-# appium-mobile-tests
+# Mobile tests
 
 To run test on Browserstack:
 ```bash
